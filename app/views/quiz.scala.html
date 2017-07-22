@@ -1,0 +1,267 @@
+@import services.Question
+
+@(questions: List[Question])
+@*
+* Call the `main` template with two arguments. The first
+* argument is a `String` with the title of the page, the second
+* argument is an `Html` object containing the body of the page.
+*@
+@main("Quiz") {
+
+  @*
+  * Get an `Html` object by calling the built-in Play welcome
+  * template and passing a `String` message.
+  *@
+
+
+  <div class="navbar-wrapper">
+    <div class="container">
+
+      <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand" href="../">Projects</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="../../../">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+                <!--<li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>-->
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    </div>
+  </div>
+
+
+
+
+
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+  <span><br /><br /><br /><br /><br /></span>
+
+  <div class="container marketing">
+
+    <form name="filterControls">
+      <div class="input-group">
+        <span class="input-group-addon">Grade Level</span>
+          <!--<input type="url" id="url" class="form-control" placeholder="https://www.fanfiction.net/...">-->
+        <select class="form-control" name="gradeLevel" id="gradeLevel">
+          <option value="k">Kindergarten</option>
+          <option value="1">First Grade</option>
+          <option value="2">Second Grade</option>
+          <option value="3">Third Grade</option>
+          <option value="4">Fourth Grade</option>
+          <option value="5">Fifth Grade</option>
+          <option value="6">Sixth Grade</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon">Subject     </span>
+
+        <select class="form-control" name="subject" id="subject">
+          <option value="Mathematics">Math</option>
+          <option value="Science">Science</option>
+          <option value="History">History</option>
+          <option value="Language">Language Arts</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon">Course      </span>
+
+        <select class="form-control" name="course" id="course">
+          <option value="k">Geometry</option>
+          <option value="1">Algebra</option>
+          <option value="2">Arithmetic/Operations</option>
+        </select>
+      </div>
+      <!--<div class="input-group">
+        <span class="input-group-addon">Question</span>
+
+        <div class="form-group">
+          <input type="question" class="form-control" id="exampleInputPassword1" placeholder="Ask us a question, if you have any">
+        </div>
+
+
+      </div> -->
+        <!-- <button class="btn btn-lg btn-primary btn-block" id="loadButton" type="button" onclick="loadStories()">Continue</button> -->
+      <!--
+        <div class="progress" id="progress" style="display: none">
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+          <span class="sr-only">100% Complete</span>
+        </div>
+      </div>
+      -->
+    </form>
+    <br />
+    <div id="storyList"> </div>
+  </div>
+
+
+  <div class="container top-buffer" align="center">
+    <button type="button" class="btn btn-primary openModal" data-toggle="modal" id="sug" data-target="#myModal" align="center" >
+      <h1><span class="glyphicon glyphicon-pencil"></span>Take Quiz!</h1>
+    </button>
+    <!--
+    <button type="button" class="btn btn-primary openModal" data-toggle="modal" id="sug" data-target="#myModal2" align="center" >
+      <h1><span class="glyphicon glyphicon-question-sign"></span>Ask Question!</h1>
+    </button>
+    -->
+
+  </div>
+
+
+
+    <!-- START -->
+  <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="exampleModalLabel" align="center">Question: What are parallel lines?</h2>
+        </div>
+        <div class="modal-body">
+          <h2>Parallel lines are two lines that are always the same distance apart and never touch. In order for two lines to be parallel, they must be drawn in the same plane, a perfectly flat surface like a wall or sheet of paper.</h2>
+            <!-- <h2 align="center">Welcome to 4th grade geometry!</h2> -->
+
+
+
+        </div>
+
+
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- END -->
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" id="modal1" role="document">
+      <div class="modal-content" id="modal2">
+        <!--<div class="modal-header">
+          <h2 class="modal-title" id="exampleModalLabel" align="center">Welcome to 4th grade Geometry!</h2>
+        </div>-->
+        <div class="modal-body">
+            <!-- <h2 align="center">Welcome to 4th grade geometry!</h2> -->
+
+          @for(question <- questions){
+              <div class="mySlides">
+                  <!--@*<div class="numbertext" align="center"> / @questions.size()</div>*@-->
+                  <h2 align="center">@question.getQuestion()</h2>
+                      <!-- <img src="question3.png" style="width:80px,height:50px" class="center-block"> -->
+
+                  <fieldset class="form-group">
+                          <!-- <legend>Radio buttons</legend> -->
+                      <div class="form-check" align="center">
+                          <label class="form-check-label">
+                              <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios@question.getCorrectAnswer()" value="option@question.getCorrectAnswer()" checked>
+                              @question.getCorrectAnswer()
+                          </label>
+                      </div>
+                      @for(answer <- question.getIncorrectAnswers()){
+                          <div class="form-check" align="center">
+                              <label class="form-check-label">
+                                  <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios@answer" value="option@answer">
+                                  @answer
+                              </label>
+                          </div>
+                      }
+
+                  </fieldset>
+
+                  <!--@*<script type="text/javascript">var @question.getCorrectAnswer()="@question.getCorrectAnswer()"</script>*@-->
+                  <div align="center">
+                      <button type="button" class="btn btn-primary" onclick="ShowCorrect('@question.getCorrectAnswer()')" align="center" >See Correct Answer</button>
+                  </div>
+
+              </div>
+          }
+
+          <div align="center">
+            <button type="button" class="btn btn-primary" onclick="plusSlides(-1)"><span class="glyphicon glyphicon-chevron-left"></span>Prev</button>
+            <button type="button" class="btn btn-primary" href="https://www.youtube.com/watch?v=P3AOoLbA3us" onclick="SeeVideo()"><span class="glyphicon glyphicon-facetime-video"></span>Video</button>
+            <button type="button" class="btn btn-primary" onclick="plusSlides(1)">Next<span class="glyphicon glyphicon-chevron-right"></span></button>
+          </div>
+
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            <!-- <button type="button" class="btn btn-primary" id="save" data-dismiss="modal">Save Review</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+
+          $(function () {
+            $(".openModal").click(function(){
+              setTimeout(function(){
+                var h=$(".modal-body .first-content p").height();
+                $(".modal-body").css('height',h+80+'px');
+                $(".modal-body .first-content p").css('height',h+'px');
+              },250);
+            });
+            $('.first-button').on('click', function () {
+              $('.first-content').animate({width:"toggle"}, function(){
+                $('.second-content').animate({width:"toggle"});
+                var h=$(".modal-body .second-content p").height();
+                $(".modal-body").css('height',h+80+'px');
+                $(".modal-body .second-content p").css('height',h+'px');
+              });
+            });
+            $('.second-button').on('click', function () {
+              $('.second-content').animate({width:"toggle"},function(){
+                $('.first-content').animate({width:"toggle"});
+                var h=$(".modal-body .first-content p").height();
+                $(".modal-body").css('height',h+80+'px');
+                $(".modal-body .first-content p").css('height',h+'px');
+              });
+            });
+          });
+
+  </script>
+
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="@routes.Assets.versioned("javascripts/bootstrap.js")"></script>
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+
+}
