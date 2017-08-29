@@ -1,0 +1,195 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://carryncare.com/eoUsers.rdf#"
+     xml:base="http://carryncare.com/eoUsers.rdf"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ns="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:eo="http://carryncare.com/eoUsers.rdf#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:EducationOntology="http://www.carryncare.com/EducationOntology#"
+     xmlns:wot="http://xmlns.com/wot/0.1/"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <owl:Ontology rdf:about="http://carryncare.com/eoUsers.rdf">
+        <owl:imports rdf:resource="http://www.carryncare.com/EducationOntology.rdf"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://carryncare.com/eoUsers.rdf#hasAssociatedCourse -->
+
+    <owl:ObjectProperty rdf:about="http://carryncare.com/eoUsers.rdf#hasAssociatedCourse">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://carryncare.com/eoUsers.rdf#CourseKnowledge"/>
+        <rdfs:range rdf:resource="http://www.carryncare.com/EducationOntology#Course"/>
+        <rdfs:label>has associated course</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://carryncare.com/eoUsers.rdf#hasChild -->
+
+    <owl:ObjectProperty rdf:about="http://carryncare.com/eoUsers.rdf#hasChild">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://carryncare.com/eoUsers.rdf#hasParent"/>
+        <rdfs:domain rdf:resource="http://carryncare.com/eoUsers.rdf#Parent"/>
+        <rdfs:range rdf:resource="http://carryncare.com/eoUsers.rdf#Student"/>
+        <rdfs:label>has child</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://carryncare.com/eoUsers.rdf#hasCourseKnowledge -->
+
+    <owl:ObjectProperty rdf:about="http://carryncare.com/eoUsers.rdf#hasCourseKnowledge">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://carryncare.com/eoUsers.rdf#Student"/>
+        <rdfs:range rdf:resource="http://carryncare.com/eoUsers.rdf#CourseKnowledge"/>
+        <rdfs:label>has course knowledge</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://carryncare.com/eoUsers.rdf#hasParent -->
+
+    <owl:ObjectProperty rdf:about="http://carryncare.com/eoUsers.rdf#hasParent">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://carryncare.com/eoUsers.rdf#Student"/>
+        <rdfs:range rdf:resource="http://carryncare.com/eoUsers.rdf#Parent"/>
+        <rdfs:label>has parent</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://carryncare.com/eoUsers.rdf#hasStudent -->
+
+    <owl:ObjectProperty rdf:about="http://carryncare.com/eoUsers.rdf#hasStudent">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://carryncare.com/eoUsers.rdf#hasTeacher"/>
+        <rdfs:domain rdf:resource="http://carryncare.com/eoUsers.rdf#Teacher"/>
+        <rdfs:range rdf:resource="http://carryncare.com/eoUsers.rdf#Student"/>
+        <rdfs:label>has student</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://carryncare.com/eoUsers.rdf#hasTeacher -->
+
+    <owl:ObjectProperty rdf:about="http://carryncare.com/eoUsers.rdf#hasTeacher">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://carryncare.com/eoUsers.rdf#Student"/>
+        <rdfs:range rdf:resource="http://carryncare.com/eoUsers.rdf#Teacher"/>
+        <rdfs:label>has teacher</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://carryncare.com/eoUsers.rdf#hasUnderstanding -->
+
+    <owl:ObjectProperty rdf:about="http://carryncare.com/eoUsers.rdf#hasUnderstanding">
+        <rdfs:domain rdf:resource="http://carryncare.com/eoUsers.rdf#CourseKnowledge"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://carryncare.com/eoUsers.rdf#password -->
+
+    <owl:DatatypeProperty rdf:about="http://carryncare.com/eoUsers.rdf#password"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://carryncare.com/eoUsers.rdf#CourseKnowledge -->
+
+    <owl:Class rdf:about="http://carryncare.com/eoUsers.rdf#CourseKnowledge">
+        <rdfs:label>course knowledge</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://carryncare.com/eoUsers.rdf#Parent -->
+
+    <owl:Class rdf:about="http://carryncare.com/eoUsers.rdf#Parent">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://carryncare.com/eoUsers.rdf#Student -->
+
+    <owl:Class rdf:about="http://carryncare.com/eoUsers.rdf#Student">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://carryncare.com/eoUsers.rdf#Teacher -->
+
+    <owl:Class rdf:about="http://carryncare.com/eoUsers.rdf#Teacher">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://carryncare.com/eoUsers.rdf#Parent"/>
+            <rdf:Description rdf:about="http://carryncare.com/eoUsers.rdf#Student"/>
+            <rdf:Description rdf:about="http://carryncare.com/eoUsers.rdf#Teacher"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+
